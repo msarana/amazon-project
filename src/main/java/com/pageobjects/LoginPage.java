@@ -56,4 +56,19 @@ public class LoginPage {
 	public void enterPassword(String password) {
 		this.passwordInputField.sendKeys(password);
 	}
+
+	public WebElement getEmailInputField() {
+		return this.emailInputField;
+	}
+
+	public WebElement getPasswordInputField() {
+		return this.passwordInputField;
+	}
+
+	/**
+	 * @return
+	 */
+	public WebElement getsignInBtn() {
+		return this.signInBtn;
+	}
 }

@@ -5,8 +5,10 @@
     <classes>
       <class name="com.pageobjects.test.AmazonLoginTest">
         <methods>
-          <include name="testAmazonLogin" invocation-numbers="0"/>
+          <include name="testAmazonLogin"/>
+          <include name="testAddToCard" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="testAmazonSignOut"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.pageobjects.test.AmazonLoginTest -->
