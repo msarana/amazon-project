@@ -12,8 +12,10 @@ package com.amazon.helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.pageobjects.CartPage;
 import com.pageobjects.HomePage;
 import com.pageobjects.LoginPage;
+import com.pageobjects.ProductPage;
 import com.pageobjects.SearchResultsPage;
 
 /**
@@ -29,6 +31,14 @@ import com.pageobjects.SearchResultsPage;
  *
  */
 public class AmazonShopping {
+	public static CartPage addItemsToCart(WebDriver driver, ProductPage productPage, String value)
+			throws InterruptedException {
+		productPage.selectDropDownValue(value);
+		productPage.clickOnAddToCartBtn();
+		Thread.sleep(1000);
+		return PageFactory.initElements(driver, CartPage.class);
+	}
+
 	public static boolean isLoggedInAs(WebDriver driver, HomePage homePage, String username) {
 		if (homePage.getUsername().getAttribute("innerHTML").equals(username)) {
 			return true;

@@ -29,14 +29,20 @@ import org.openqa.selenium.support.ui.Select;
  *
  */
 public class ProductPage {
-	// @FindBy(id = "add-to-cart-button")
-	@FindBy(name = "submit.add-to-cart")
+	@FindBy(id = "add-to-cart-button")
 	private WebElement addToCartBtn;
 
 	private WebDriver driver;
 
-	@FindBy(name = "quantity")
+	@FindBy(id = "productTitle")
+	private WebElement productTitleLabel;
+
+	@FindBy(id = "quantity")
 	private WebElement quantityDropDown;
+
+	public ProductPage(WebDriver driver) {
+		this.driver = driver;
+	}
 
 	public CartPage clickOnAddToCartBtn() {
 		this.addToCartBtn.click();
@@ -45,6 +51,14 @@ public class ProductPage {
 
 	public WebElement getAddToCartBtn() {
 		return this.addToCartBtn;
+	}
+
+	public String getProductTitle() {
+		return this.productTitleLabel.getText();
+	}
+
+	public WebElement getProductTitleLabel() {
+		return this.productTitleLabel;
 	}
 
 	public WebElement getQuantityDropDown() {

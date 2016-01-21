@@ -35,6 +35,10 @@ public class SearchResultsPage {
 	@FindBy(className = "s-access-detail-page")
 	private List<WebElement> searchResults;
 
+	public SearchResultsPage(WebDriver driver) {
+		this.driver = driver;
+	}
+
 	public ProductPage clickOnProduct(int productNumber) {
 		this.getSearchResult(productNumber).click();
 		return PageFactory.initElements(this.driver, ProductPage.class);

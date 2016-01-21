@@ -29,6 +29,9 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class HomePage {
 
+	@FindBy(id = "nav-cart")
+	private WebElement cartLink;
+
 	private WebDriver driver;
 
 	@FindBy(id = "twotabsearchtextbox")
@@ -48,6 +51,11 @@ public class HomePage {
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
+	}
+
+	public CartPage clickOnCartLink() {
+		this.cartLink.click();
+		return PageFactory.initElements(this.driver, CartPage.class);
 	}
 
 	public LoginPage clickOnSignInBtn() {
@@ -71,6 +79,10 @@ public class HomePage {
 
 	public void enterRequestInSearchTextBox(String request) {
 		this.searchTextBox.sendKeys(request);
+	}
+
+	public WebElement getCartLink() {
+		return this.cartLink;
 	}
 
 	public WebElement getSearchTextBox() {

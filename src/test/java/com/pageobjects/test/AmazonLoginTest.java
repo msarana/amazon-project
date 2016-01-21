@@ -10,6 +10,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.amazon.helper.AmazonShopping;
+import com.pageobjects.CartPage;
 import com.pageobjects.HomePage;
 import com.pageobjects.LoginPage;
 import com.pageobjects.ProductPage;
@@ -50,6 +51,9 @@ public class AmazonLoginTest {
 		SearchResultsPage searchResults = AmazonShopping.searchForProduct(this.driver, this.homePage, shoppingList[0]);
 		Thread.sleep(1000);
 		ProductPage productPage = searchResults.clickOnProduct(Integer.parseInt(shoppingList[1]));
+		Thread.sleep(1000);
+		String productTitle = productPage.getProductTitle();
+		CartPage cartPage = AmazonShopping.addItemsToCart(this.driver, productPage, shoppingList[2]);
 		Thread.sleep(1000);
 
 	}
